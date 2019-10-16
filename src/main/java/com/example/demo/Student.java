@@ -12,9 +12,9 @@ public class Student {
     private String major;
     private String studentid;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL,
-    fetch = FetchType.EAGER)
-    public Set<Class> classes;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "classroom_id")
+    private ClassRoom classRoom;
 
     public long getId() {
         return id;
@@ -46,5 +46,13 @@ public class Student {
 
     public void setStudentid(String studentid) {
         this.studentid = studentid;
+    }
+
+    public ClassRoom getClassRoom() {
+        return classRoom;
+    }
+
+    public void setClassRoom(ClassRoom classRoom) {
+        this.classRoom = classRoom;
     }
 }

@@ -1,20 +1,23 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-public class Class {
+public class ClassRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
+    private String name1;
     private String professor;
     private String credit;
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "student_id")
-    private Student student;
+    @OneToMany(mappedBy = "classRoom", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private Set<Student> students;
+
+
 
     public long getId() {
         return id;
@@ -24,12 +27,12 @@ public class Class {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getName1() {
+        return name1;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName1(String name1) {
+        this.name1 = name1;
     }
 
     public String getProfessor() {
@@ -56,11 +59,11 @@ public class Class {
         this.description = description;
     }
 
-    public Student getStudent() {
-        return student;
+    public Set<Student> getStudents() {
+        return students;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 }

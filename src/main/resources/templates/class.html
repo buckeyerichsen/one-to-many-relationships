@@ -34,9 +34,18 @@
 <h1>Class Form</h1>
 <form action="#" th:action="@{/processclass}" th:object="${classes}" method="post">
     <input type="hidden" th:field="*{id}" />
-    Class Name :<input type="text" th:field="*{name}" />
-    <span th:if="${#fields.hasErrors('name')}"
-          th:errors="*{name}"></span><br/>
+    Class Name :<input type="text" th:field="*{name1}" />
+    <span th:if="${#fields.hasErrors('name1')}"
+          th:errors="*{name1}"></span><br/>
+    Professor :<input type="text" th:field="*{professor}" />
+    <span th:if="${#fields.hasErrors('professor')}"
+          th:errors="*{professor}"></span><br/>
+    Credit :<input type="text" th:field="*{credit}" />
+    <span th:if="${#fields.hasErrors('credit')}"
+          th:errors="*{credit}"></span><br/>
+    Description :<input type="text" th:field="*{description}" />
+    <span th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"></span><br/>
 
 
     <input type="submit" value="Submit" />

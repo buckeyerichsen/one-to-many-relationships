@@ -32,7 +32,7 @@
 </nav>
 <br/>
 <h1>Student Form</h1>
-<form action="#" th:action="@{/student}" th:object="${students}" method="post">
+<form action="#" th:action="@{/student}" th:object="${student}" method="post">
     <input type="hidden" th:field="*{id}" />
     Student Name :<input type="text" th:field="*{name}" />
     <span th:if="${#fields.hasErrors('name')}"
@@ -43,7 +43,12 @@
     Student ID :<input type="text" th:field="*{studentid}" />
     <span th:if="${#fields.hasErrors('studentid')}"
           th:errors="*{studentid}"></span><br/>
+  <select name="classroom" th:field="*{classRoom}">
+      <option th:each="classroom :${class}" th:value="${classroom.id}"
+              th:text="${classroom.name1}">
 
+      </option>
+  </select>
 
     <input type="submit" value="Submit" />
 </form>

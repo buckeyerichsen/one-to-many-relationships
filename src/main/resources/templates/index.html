@@ -31,6 +31,32 @@
 </nav>
 <br/>
 
+<h1>Classes</h1>
+<table>
+    <tr>
+        <th>Class Name</th>
+        <th>Professor</th>
+        <th>Credit</th>
+        <th>Description</th>
+
+    </tr>
+
+    <tr th:each="class : ${classrooms}">
+        <td th:text="${class.name1}">
+        <td th:text="${class.professor}" >
+        <td th:text="${class.credit}">
+        <td th:text="${class.description}">
+
+        </td>
+        <td>
+
+            <a th:href="@{/updateclass/{id}(id=${class.id})}">Update</a>
+            <a th:href="@{/detailclass/{id}(id=${class.id})}">Details</a>
+            <a th:href="@{/deleteclass/{id}(id=${class.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
 <h1>Students</h1>
 <table >
     <tr>
@@ -44,6 +70,7 @@
         <td th:text="${student.name}">
         <td th:text="${student.major}">
         <td th:text="${student.studentid}">
+
 
         </td>
 
